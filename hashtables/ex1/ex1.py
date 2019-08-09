@@ -13,7 +13,26 @@ def get_indices_of_item_weights(weights, length, limit):
     YOUR CODE HERE
     """
 
+    for index, item in enumerate(weights, start=0):   # default is zero
+        hash_table_insert(ht, item, index)
+
+        # print(hash_table_retrieve(ht, item))
+
+    for i in weights:
+        # print(i)
+        first_index = hash_table_retrieve(ht, i)
+        print(f'first index is {first_index}')
+        if hash_table_retrieve(ht, limit - i):
+            second_index = hash_table_retrieve(ht, limit - i)
+            pair = [max(first_index, second_index), min(first_index,second_index)]
+            print(f'the pair is {pair}')
+            return (pair)
+        # else:
+    
+    print('no pair exists')
     return None
+    # print (f'the pair is {first_weight}, {second_weight}')
+    # return (first_weight, second_weight)
 
 
 def print_answer(answer):
@@ -21,3 +40,5 @@ def print_answer(answer):
         print(str(answer[0] + " " + answer[1]))
     else:
         print("None")
+
+get_indices_of_item_weights([4,6,10,15,16], 5, 21)

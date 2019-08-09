@@ -88,6 +88,8 @@ def hash_table_retrieve(hash_table, key):
     while current_pair is not None:
         if(current_pair.key == key):
             return current_pair.value
+        else:
+            return None
         current_pair = current_pair.next
 
 
